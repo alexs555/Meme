@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SentMemesController.swift
 //  MemeMe
 //
 //  Created by Алексей Шпирко on 07/07/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SentMemesController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
