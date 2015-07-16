@@ -13,7 +13,7 @@ class MemesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Sent memes"
+        self.navigationItem.title = "Sent memes"
         self.tableView.rowHeight = 120
 
     }
@@ -45,6 +45,16 @@ class MemesTableViewController: UITableViewController {
         }
 
         return cell
+    }
+    
+     override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+    
+        if let meme = MemeStorage.sharedInstance.memeForIndexPath(indexPath) {
+         
+            
+            
+        }
+    
     }
     
 }

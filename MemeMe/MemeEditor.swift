@@ -34,6 +34,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,7 +43,6 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         
         configureRecognizer()
         updateButtons()
-        
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -106,6 +106,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
             
             (activity, success, items, error) in
             self.save()
+            self.dismissViewControllerAnimated(true, completion: nil)
             
         }
         self.presentViewController(activityViewController, animated: true, completion: nil)
@@ -184,7 +185,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         return keyboardSize.CGRectValue().height
     }
     
-    // MARK : tap recognizer
+    // MARK : tap recognizer 
      func handleTap(sender: UITapGestureRecognizer) {
     
         self.topTextField.resignFirstResponder()

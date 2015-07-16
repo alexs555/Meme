@@ -41,6 +41,7 @@
                                 <size key="customSize" width="100" height="100"/>
                                 <connections>
                                     <outlet property="imageView" destination="9ku-7J-0g9" id="Kyr-3q-CMl"/>
+                                    <segue destination="497-Ss-QuV" kind="show" identifier="showPreview" id="AcS-0p-VoM"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -59,7 +60,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpc-GV-Ahn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="470" y="-1237"/>
+            <point key="canvasLocation" x="379" y="-1247"/>
         </scene>
         <!--Memes Table View Controller-->
         <scene sceneID="wc9-fj-yQd">
@@ -75,6 +76,9 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Ou-f3-aN4" id="Vaj-a0-LSM">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="497-Ss-QuV" kind="show" identifier="showPreview" id="Qqf-kT-xH5"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -92,7 +96,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lee-zp-i34" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="470" y="-1941"/>
+            <point key="canvasLocation" x="422" y="-1968"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LwE-UD-XZk">
@@ -112,46 +116,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j5R-Vv-THM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1090" y="-1662"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
-            <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZgO-3Z-gB7">
-                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem image="collection" id="Va0-e7-UqU"/>
-                                    <tabBarItem image="table" id="YVj-wH-KTT"/>
-                                </items>
-                            </tabBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ZgO-3Z-gB7" secondAttribute="bottom" id="2m1-G4-4eX"/>
-                            <constraint firstAttribute="trailing" secondItem="ZgO-3Z-gB7" secondAttribute="trailing" id="awz-sB-WPe"/>
-                            <constraint firstItem="ZgO-3Z-gB7" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="lAO-Le-izr"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="YnY-nK-jDW">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mdc-5A-HrJ">
-                            <connections>
-                                <segue destination="5af-ys-sXr" kind="presentation" id="KQq-X3-gjn"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="713" y="-368"/>
         </scene>
         <!--Meme Editor-->
         <scene sceneID="dr5-SL-Q3B">
@@ -258,40 +222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RwZ-7b-cF9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2108" y="-1920"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ZnS-9w-z3y">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XKK-ai-uDh" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7yj-Yz-hA8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="nZz-X6-KXE"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L7s-Fe-XQQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="32" y="-368"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="zmn-r1-lVW">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5af-ys-sXr" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XTs-YM-RvM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JJU-qL-874" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1360" y="-368"/>
+            <point key="canvasLocation" x="2016" y="-1968"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sE7-aq-Wub">
@@ -310,7 +241,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e1z-xz-lc3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-281" y="-1967"/>
+            <point key="canvasLocation" x="-342" y="-1975"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6aN-DE-hqR">
@@ -347,7 +278,39 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bUI-Sa-qWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1296" y="-1920"/>
+            <point key="canvasLocation" x="1284" y="-1968"/>
+        </scene>
+        <!--Meme Preview-->
+        <scene sceneID="qx5-NK-8Kk">
+            <objects>
+                <viewController id="497-Ss-QuV" customClass="MemePreview" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MGv-qE-OcU"/>
+                        <viewControllerLayoutGuide type="bottom" id="dMW-3L-UAv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t9h-Ki-2rz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EEi-qc-J5i">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dMW-3L-UAv" firstAttribute="top" secondItem="EEi-qc-J5i" secondAttribute="bottom" id="ADr-7w-lhC"/>
+                            <constraint firstItem="EEi-qc-J5i" firstAttribute="top" secondItem="t9h-Ki-2rz" secondAttribute="top" id="at3-sP-mmV"/>
+                            <constraint firstAttribute="trailing" secondItem="EEi-qc-J5i" secondAttribute="trailing" id="bOr-Sq-amI"/>
+                            <constraint firstItem="EEi-qc-J5i" firstAttribute="leading" secondItem="t9h-Ki-2rz" secondAttribute="leading" id="s2F-Kf-Hjv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="EEi-qc-J5i" id="prl-7W-3FB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vmr-G5-Pjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1284" y="-1107"/>
         </scene>
     </scenes>
     <resources>
@@ -355,6 +318,7 @@
         <image name="table" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Qqf-kT-xH5"/>
         <segue reference="ALS-4k-vz4"/>
     </inferredMetricsTieBreakers>
 </document>

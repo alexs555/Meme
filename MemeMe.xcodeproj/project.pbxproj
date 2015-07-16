@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		990D24A31B56DB080094085C /* MemePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990D24A21B56DB080094085C /* MemePreview.swift */; };
 		9928EE011B4C65B1009835C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9928EE001B4C65B1009835C6 /* AppDelegate.swift */; };
 		9928EE031B4C65B1009835C6 /* SentMemesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9928EE021B4C65B1009835C6 /* SentMemesController.swift */; };
 		9928EE061B4C65B1009835C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9928EE041B4C65B1009835C6 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		990D24A21B56DB080094085C /* MemePreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemePreview.swift; sourceTree = "<group>"; };
 		9928EDFB1B4C65B1009835C6 /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9928EDFF1B4C65B1009835C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9928EE001B4C65B1009835C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				99F08DF01B517BB30045503A /* MemesCollectionViewController.swift */,
 				9928EE021B4C65B1009835C6 /* SentMemesController.swift */,
 				99F08DF21B517D2B0045503A /* MemesTableViewController.swift */,
+				990D24A21B56DB080094085C /* MemePreview.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				990D24A31B56DB080094085C /* MemePreview.swift in Sources */,
 				99F08DF11B517BB30045503A /* MemesCollectionViewController.swift in Sources */,
 				9928EE031B4C65B1009835C6 /* SentMemesController.swift in Sources */,
 				99F08DEC1B515F290045503A /* Meme.swift in Sources */,
