@@ -47,14 +47,18 @@ class MemesTableViewController: UITableViewController {
         return cell
     }
     
-     override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-    
-        if let meme = MemeStorage.sharedInstance.memeForIndexPath(indexPath) {
-         
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "showPreview") {
             
-            
+            if let indexPath = self.tableView?.indexPathForCell(sender as! UITableViewCell) {
+                
+                if let meme = MemeStorage.sharedInstance.memeForIndexPath(indexPath) {
+                    
+                    let previewVC = segue.destinationViewController as! MemePreview
+                    previewVC.currentMeme = meme
+                }
+            }
         }
-    
     }
     
 }

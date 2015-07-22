@@ -98,6 +98,21 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         self.presentViewController(pickerController, animated: true, completion: nil)
     }
     
+    @IBAction func makeImage(sender: UIBarButtonItem) {
+        
+        let pickerController = UIImagePickerController()
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
+            
+            pickerController.delegate = self
+            pickerController.sourceType = UIImagePickerControllerSourceType.Camera;
+            pickerController.allowsEditing = false
+            pickerController.cameraCaptureMode = .Photo
+            self.presentViewController(pickerController, animated: true, completion: nil)
+        }
+        
+    }
+   
+    
     @IBAction func sharePressed(sender: UIBarButtonItem) {
         
         let memedImage = generateMemeImage()
