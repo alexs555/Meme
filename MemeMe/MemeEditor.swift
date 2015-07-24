@@ -181,7 +181,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     func keyboardWillShow(notification: NSNotification) {
         
         if bottomTextField.isFirstResponder() {
-            fieldBottomConstraint.constant += getKeyboardHeight(notification)
+            fieldBottomConstraint.constant = getKeyboardHeight(notification)
         }
         
         view.layoutIfNeeded()
