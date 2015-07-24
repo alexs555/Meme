@@ -14,8 +14,8 @@ extension UIView {
     
     func imageFromView() -> UIImage {
         
-        UIGraphicsBeginImageContext(self.bounds.size)
-        self.drawViewHierarchyInRect(self.bounds, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(bounds.size)
+        drawViewHierarchyInRect(bounds, afterScreenUpdates: true)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
@@ -38,8 +38,8 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureField(self.bottomTextField, placeholder:"BOTTOM")
-        configureField(self.topTextField,placeholder:"TOP")
+        configureField(bottomTextField, placeholder:"BOTTOM")
+        configureField(topTextField,placeholder:"TOP")
         
         configureRecognizer()
         updateButtons()
@@ -50,18 +50,18 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        self.unsubscribeFromNotifications()
+        unsubscribeFromNotifications()
     }
     
     func updateButtons() {
-        self.shareButton.enabled = self.imageView.image != nil
-        self.cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(
+        shareButton.enabled = imageView.image != nil
+        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(
         UIImagePickerControllerSourceType.Camera)
     }
     
@@ -69,7 +69,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         
         let tap = UITapGestureRecognizer()
         tap.addTarget(self, action: "handleTap:")
-        self.imageView.addGestureRecognizer(tap)
+        imageView.addGestureRecognizer(tap)
         
     }
     
@@ -87,7 +87,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     //MARK: Actions
     @IBAction func cancelPressed(sender: UIBarButtonItem) {
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func pickImage(sender: UIBarButtonItem) {
@@ -95,7 +95,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         let pickerController = UIImagePickerController()
         pickerController.allowsEditing = true
         pickerController.delegate = self
-        self.presentViewController(pickerController, animated: true, completion: nil)
+        presentViewController(pickerController, animated: true, completion: nil)
     }
     
     @IBAction func makeImage(sender: UIBarButtonItem) {
@@ -107,7 +107,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
             pickerController.sourceType = UIImagePickerControllerSourceType.Camera;
             pickerController.allowsEditing = false
             pickerController.cameraCaptureMode = .Photo
-            self.presentViewController(pickerController, animated: true, completion: nil)
+            presentViewController(pickerController, animated: true, completion: nil)
         }
         
     }
@@ -124,13 +124,13 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
             self.dismissViewControllerAnimated(true, completion: nil)
             
         }
-        self.presentViewController(activityViewController, animated: true, completion: nil)
+        presentViewController(activityViewController, animated: true, completion: nil)
         
     }
     
     func save() {
         
-        var  meme = Meme(text: self.topTextField.text, image: self.imageView.image, memedImage: generateMemeImage())
+        var  meme = Meme(text: topTextField.text, image: imageView.image, memedImage: generateMemeImage())
         MemeStorage.sharedInstance.addMeme(meme)
     }
     
@@ -138,7 +138,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         
         showBars(false)
         
-        let memeImage = self.view.imageFromView()
+        let memeImage = view.imageFromView()
         
         showBars(true)
         
@@ -148,8 +148,8 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     func showBars(show:Bool) {
         
-        self.toolbar.hidden = !show
-        self.navigationController?.setNavigationBarHidden(!show, animated: false)
+        toolbar.hidden = !show
+        navigationController?.setNavigationBarHidden(!show, animated: false)
         
     }
     
@@ -157,9 +157,9 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         
-        self.imageView.image = image
+        imageView.image = image
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
         
          updateButtons()
     }
@@ -181,16 +181,16 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     func keyboardWillShow(notification: NSNotification) {
         
         if bottomTextField.isFirstResponder() {
-            self.fieldBottomConstraint.constant += getKeyboardHeight(notification)
+            fieldBottomConstraint.constant += getKeyboardHeight(notification)
         }
         
-        self.view.layoutIfNeeded()
+        view.layoutIfNeeded()
     }
     
     func keyboardWillHide(notification: NSNotification) {
         
-        self.fieldBottomConstraint.constant = 0
-        self.view.layoutIfNeeded()
+        fieldBottomConstraint.constant = 0
+        view.layoutIfNeeded()
     }
     
     func getKeyboardHeight(notification : NSNotification) -> CGFloat {
@@ -203,8 +203,8 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     // MARK : tap recognizer 
      func handleTap(sender: UITapGestureRecognizer) {
     
-        self.topTextField.resignFirstResponder()
-        self.bottomTextField.resignFirstResponder()
+        topTextField.resignFirstResponder()
+        bottomTextField.resignFirstResponder()
     
     }
     

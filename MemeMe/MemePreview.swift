@@ -20,8 +20,8 @@ class MemePreview: UIViewController {
         super.viewDidLoad()
         
         //meme is injected from lists
-        self.imageView.image = currentMeme?.memedImage
-        self.navigationItem.title = "Preview"
+        imageView.image = currentMeme?.memedImage
+        navigationItem.title = "Preview"
         
     }
     

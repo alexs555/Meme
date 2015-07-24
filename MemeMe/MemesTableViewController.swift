@@ -13,14 +13,14 @@ class MemesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "Sent memes"
-        self.tableView.rowHeight = 120
+        navigationItem.title = "Sent memes"
+        tableView.rowHeight = 120
 
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +50,7 @@ class MemesTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "showPreview") {
             
-            if let indexPath = self.tableView?.indexPathForCell(sender as! UITableViewCell) {
+            if let indexPath = tableView?.indexPathForCell(sender as! UITableViewCell) {
                 
                 if let meme = MemeStorage.sharedInstance.memeForIndexPath(indexPath) {
                     

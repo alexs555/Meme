@@ -15,7 +15,7 @@ class MemesCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "Sent memes"
+        navigationItem.title = "Sent memes"
         
         configureCollectionView()
 
@@ -23,16 +23,16 @@ class MemesCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.collectionView!.reloadData()
+        collectionView!.reloadData()
     }
 
 
     func configureCollectionView() {
         
         var flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSizeMake(self.collectionView!.frame.size.width/3-10, self.collectionView!.frame.size.width/3-10)
+        flowLayout.itemSize = CGSizeMake(collectionView!.frame.size.width/3-10, collectionView!.frame.size.width/3-10)
         flowLayout.scrollDirection = UICollectionViewScrollDirection.Vertical
-        self.collectionView?.collectionViewLayout = flowLayout
+        collectionView?.collectionViewLayout = flowLayout
         
 
     }
@@ -62,7 +62,7 @@ class MemesCollectionViewController: UICollectionViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "showPreview") {
             
-            if let indexPath = self.collectionView?.indexPathForCell(sender as! UICollectionViewCell) {
+            if let indexPath = collectionView?.indexPathForCell(sender as! UICollectionViewCell) {
                 
                 if let meme = MemeStorage.sharedInstance.memeForIndexPath(indexPath) {
                     

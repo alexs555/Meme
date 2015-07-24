@@ -16,16 +16,16 @@ class MemeStorage {
     
     func addMeme(meme:Meme) {
         
-        self.memes.append(meme)
+        memes.append(meme)
     }
     
     func memesCount() -> Int {
         
-        return self.memes.count
+        return memes.count
     }
     
     func memeForIndexPath(indexPath:NSIndexPath) -> Meme? {
         
-        return self.memes[indexPath.row]
+        return memes[indexPath.row]
     }
 }
