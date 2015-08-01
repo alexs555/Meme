@@ -19,6 +19,14 @@ class MemeStorage {
         memes.append(meme)
     }
     
+    func updateMeme(oldMeme:Meme, newMeme:Meme) {
+        
+        oldMeme.topText = newMeme.topText
+        oldMeme.bottomText = newMeme.bottomText;
+        oldMeme.image = newMeme.image
+        oldMeme.memedImage = newMeme.memedImage
+    }
+    
     func memesCount() -> Int {
         
         return memes.count

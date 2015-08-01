@@ -60,7 +60,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpc-GV-Ahn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="424" y="-1150"/>
+            <point key="canvasLocation" x="424" y="-1180"/>
         </scene>
         <!--Memes Table View Controller-->
         <scene sceneID="wc9-fj-yQd">
@@ -323,11 +323,12 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="EEi-qc-J5i" id="prl-7W-3FB"/>
+                        <segue destination="F2S-eI-4ec" kind="show" identifier="edit" id="ki1-9K-MVe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vmr-G5-Pjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1242" y="-1261"/>
+            <point key="canvasLocation" x="1236" y="-1180"/>
         </scene>
     </scenes>
     <resources>
@@ -335,7 +336,8 @@
         <image name="table" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ALS-4k-vz4"/>
         <segue reference="Q45-ew-U7I"/>
+        <segue reference="ALS-4k-vz4"/>
+        <segue reference="ki1-9K-MVe"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -36,7 +36,7 @@ class MemesTableViewController: UITableViewController {
         if let meme = MemeStorage.sharedInstance.memeForIndexPath(indexPath) {
             
             cell.imageView?.image = meme.memedImage
-            cell.textLabel?.text = meme.text
+            cell.textLabel?.text = meme.topText
         }
 
         return cell

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Swift
 
 
 class MemePreview: UIViewController {
@@ -19,12 +20,15 @@ class MemePreview: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //meme is injected from lists
-        imageView.image = currentMeme?.memedImage
         navigationItem.title = "Preview"
         
         customizeNavigationBar()
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        imageView.image = currentMeme?.memedImage
     }
     
     private func customizeNavigationBar() {
@@ -36,13 +40,21 @@ class MemePreview: UIViewController {
     
     func editMeme() {
         
-        
+        self.performSegueWithIdentifier("edit", sender: self)
     }
     
     func removeMeme() {
         
         MemeStorage.sharedInstance.removeMeme(currentMeme!)
         navigationController?.popViewControllerAnimated(true)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "edit") {
+            
+            let editorVC = segue.destinationViewController as! MemeEditor
+            editorVC.editingMeme = currentMeme
+        }
     }
 }
 

@@ -12,13 +12,15 @@ import UIKit
 //Meme has to be class, not struc in order to simplify == method (Equatable support)
 class Meme:Equatable {
     
-    var text: String
+    var topText: String
+    var bottomText: String
     var image: UIImage?
     var memedImage: UIImage
     
-    init (text:String, image:UIImage?, memedImage:UIImage) {
+    init (topText:String, bottomText:String, image:UIImage?, memedImage:UIImage) {
         
-        self.text = text
+        self.topText = topText
+        self.bottomText = bottomText
         self.image = image
         self.memedImage = memedImage
         

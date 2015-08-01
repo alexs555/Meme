@@ -33,6 +33,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    var editingMeme:Meme?
     
     
     override func viewDidLoad() {
@@ -63,6 +64,7 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         shareButton.enabled = imageView.image != nil
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(
         UIImagePickerControllerSourceType.Camera)
+       
     }
     
     func configureRecognizer() {
@@ -82,12 +84,18 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         field.attributedPlaceholder = string
         field.font = UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)
         field.textColor = UIColor.whiteColor()
+        
+        if let meme = editingMeme {
+            field.text = (field == topTextField) ? meme.topText : meme.bottomText
+            imageView.image = meme.image
+        }
     }
     
     //MARK: Actions
     @IBAction func cancelPressed(sender: UIBarButtonItem) {
         
-        dismissViewControllerAnimated(true, completion: nil)
+        dismissView()
+        
     }
     
     @IBAction func pickImage(sender: UIBarButtonItem) {
@@ -120,8 +128,12 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         activityViewController.completionWithItemsHandler = {
             
             (activity, success, items, error) in
-            self.save()
-            self.dismissViewControllerAnimated(true, completion: nil)
+            
+                if (success) {
+                     self.save()
+                }
+           
+                self.dismissView()
             
         }
         presentViewController(activityViewController, animated: true, completion: nil)
@@ -130,8 +142,13 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     func save() {
         
-        var  meme = Meme(text: topTextField.text, image: imageView.image, memedImage: generateMemeImage())
-        MemeStorage.sharedInstance.addMeme(meme)
+         var  meme = Meme(topText:topTextField.text, bottomText:bottomTextField.text, image: imageView.image, memedImage: generateMemeImage())
+         if (editingMeme != nil) {
+            MemeStorage.sharedInstance.updateMeme(editingMeme!, newMeme: meme)
+         } else {
+            MemeStorage.sharedInstance.addMeme(meme)
+        }
+        
     }
     
     func generateMemeImage() -> UIImage {
@@ -151,6 +168,16 @@ class MemeEditor: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         toolbar.hidden = !show
         navigationController?.setNavigationBarHidden(!show, animated: false)
         
+    }
+    
+    
+    func dismissView() {
+        
+        if (editingMeme != nil) { //editing mode
+            navigationController?.popViewControllerAnimated(true)
+        } else { //meme creation mode
+            dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     
    //MARK: UIImagePickerControllerDelegate
