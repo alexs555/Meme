@@ -9,7 +9,8 @@
 import Foundation
 import UIKit
 
-struct Meme {
+//Meme has to be class, not struc in order to simplify == method (Equatable support)
+class Meme:Equatable {
     
     var text: String
     var image: UIImage?
@@ -23,4 +24,9 @@ struct Meme {
         
     }
     
+}
+
+func ==(lhs: Meme, rhs: Meme) -> Bool
+{
+    return lhs === rhs
 }

@@ -22,10 +22,28 @@ class MemePreview: UIViewController {
         //meme is injected from lists
         imageView.image = currentMeme?.memedImage
         navigationItem.title = "Preview"
-        hidesBottomBarWhenPushed = true
+        
+        customizeNavigationBar()
         
     }
     
+    private func customizeNavigationBar() {
+        
+        var editItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: "editMeme")
+         var deleteItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Trash, target: self, action: "removeMeme")
+        navigationItem.rightBarButtonItems = [editItem,deleteItem]
+    }
+    
+    func editMeme() {
+        
+        
+    }
+    
+    func removeMeme() {
+        
+        MemeStorage.sharedInstance.removeMeme(currentMeme!)
+        navigationController?.popViewControllerAnimated(true)
+    }
 }
 
    

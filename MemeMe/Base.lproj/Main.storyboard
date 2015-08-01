@@ -318,7 +318,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="epH-gq-DtR"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="EEi-qc-J5i" id="prl-7W-3FB"/>
                     </connections>

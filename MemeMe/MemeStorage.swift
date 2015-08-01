@@ -28,4 +28,12 @@ class MemeStorage {
         
         return memes[indexPath.row]
     }
+    
+    func removeMeme(meme:Meme) {
+       
+        var index = find(memes,meme)
+        memes.removeAtIndex(index!)
+    }
 }
+
+
