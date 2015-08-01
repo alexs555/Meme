@@ -66,6 +66,7 @@ class MemesCollectionViewController: UICollectionViewController {
                 if let meme = MemeStorage.sharedInstance.memeForIndexPath(indexPath) {
                     
                     let previewVC = segue.destinationViewController as! MemePreview
+                    previewVC.hidesBottomBarWhenPushed = true
                     previewVC.currentMeme = meme
                 }
             }

@@ -22,6 +22,7 @@ class MemePreview: UIViewController {
         //meme is injected from lists
         imageView.image = currentMeme?.memedImage
         navigationItem.title = "Preview"
+        hidesBottomBarWhenPushed = true
         
     }
     
